@@ -2,7 +2,9 @@ package com.model2.mvc.web.user;
 
 import java.util.Map;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,7 @@ import com.model2.mvc.common.Page;
 import com.model2.mvc.common.Search;
 import com.model2.mvc.service.domain.User;
 import com.model2.mvc.service.user.UserService;
+import com.model2.mvc.service.user.impl.UserServiceImpl;
 
 
 //==> 회원관리 Controller
@@ -169,5 +172,38 @@ public class UserController {
 		model.addAttribute("search", search);
 		
 		return "forward:/user/listUser.jsp";
+	}
+	
+	@RequestMapping("/delete.do")
+	public String deleteUser(HttpSession session, Cookie[] cookies, HttpServletResponse response) throws Exception{
+		
+		System.out.println("/delete.do");
+
+		User user = (User)session.getAttribute("user");
+		System.out.println("세션에서 user꺼냄 userId : "+user.getUserId());
+		
+		//DB에서 회원정보 삭제	
+		userService.deleteUser(user.getUserId());
+		
+		//최근 본 상품 목록 삭제		
+		if (cookies!=null && cookies.length > 0) {
+			
+			for (Cookie cookie : cookies) {
+				
+				if (cookie.getName() != null && cookie.getName().startsWith("history")) {
+					
+					cookie.setMaxAge(0);
+					response.addCookie(cookie);
+				}
+			}
+		}
+		
+		//세션삭제
+		session.invalidate();
+		
+		System.out.println("DeleteUserAction.java 완료");
+		
+		return "redirect:/user/deleteUserView.jsp";
+		
 	}
 }

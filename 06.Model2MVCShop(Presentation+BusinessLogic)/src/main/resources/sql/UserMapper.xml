@@ -95,4 +95,10 @@
 						</if> ) countTable						
 	 </select>
 	 
+	  <delete id="deleteUser" parameterType="string">
+		DELETE
+		FROM user
+		WHERE user_id = #{value}
+	</delete>
+	 
 </mapper>
