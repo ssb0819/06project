@@ -134,7 +134,7 @@ function fncGetList(currentPage){
 			<td></td>
 			<td align="left">
 				<c:choose>
-					<c:when test="${ !empty product.proTranCode && product.proTranCode == '판매중' }">
+					<c:when test="${ empty product.proTranCode || product.proTranCode == '판매중' }">
 							<a href="/getProduct.do?prodNo=${product.prodNo}&menu=search&currentPage=${search.currentPage}">
 							${ product.prodName }</a>
 					</c:when>

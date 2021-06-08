@@ -16,8 +16,8 @@ public class Search {
 	private int endRowNum;
 	private int startRowNum;
 	
-	private int searchPriceMin;
-	private int searchPriceMax;
+	private String searchPriceMin;
+	private String searchPriceMax;
 	
 	///Constructor
 	public Search() {
@@ -61,19 +61,19 @@ public class Search {
 		return (getCurrentPage()-1)*getPageSize()+1;
 	}
 	
-	public int getSearchPriceMin() {
+	public String getSearchPriceMin() {
 		return searchPriceMin;
 	}
 
-	public void setSearchPriceMin(int searchPriceMin) {
+	public void setSearchPriceMin(String searchPriceMin) {
 		this.searchPriceMin = searchPriceMin;
 	}
 
-	public int getSearchPriceMax() {
+	public String getSearchPriceMax() {
 		return searchPriceMax;
 	}
 
-	public void setSearchPriceMax(int searchPriceMax) {
+	public void setSearchPriceMax(String searchPriceMax) {
 		this.searchPriceMax = searchPriceMax;
 	}
 
@@ -82,6 +82,7 @@ public class Search {
 		return "Search [currentPage=" + currentPage + ", searchCondition="
 				+ searchCondition + ", searchKeyword=" + searchKeyword
 				+ ", pageSize=" + pageSize + ", endRowNum=" + endRowNum
-				+ ", startRowNum=" + startRowNum + "]";
+				+ ", startRowNum=" + startRowNum + ", searchPriceMin=" 
+				+ searchPriceMin + ", searchPriceMax"+ searchPriceMax +"]";
 	}
 }

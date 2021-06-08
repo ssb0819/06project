@@ -44,11 +44,11 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public Map<String, Object> getProductList(Search search) throws Exception {
 		// TODO Auto-generated method stub
-		//List<Product> list= productDao.getProductList(search);
+		List<Product> list= productDao.getProductList(search);
 		int totalCount = productDao.getTotalCount(search);
 		
 		Map<String, Object> map = new HashMap<String, Object>();
-		//map.put("list", list );
+		map.put("list", list );
 		map.put("totalCount", totalCount);
 		
 		return map;

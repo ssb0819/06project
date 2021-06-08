@@ -21,6 +21,11 @@ public class ProductDaoImpl implements ProductDao {
 	public void setSqlSession(SqlSession sqlSession) {
 		this.sqlSession = sqlSession;
 	}
+	
+	public ProductDaoImpl() {
+		// TODO Auto-generated constructor stub
+		System.out.println(this.getClass());
+	}
 
 	@Override
 	public Product findProduct(int prodNo) throws Exception {

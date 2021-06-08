@@ -7,8 +7,8 @@
 <meta charset="EUC-KR">
 <title>상품삭제</title>
 <script>
-function fncDeleteProduct() {	
-	opener.window.location.href='/deleteProduct/'${param.prodNo};	
+function fncDeletePurchase() {	
+	opener.window.location.href='/deletePurchase.do?tranNo='+${param.tranNo};	
 	window.close();
 }
 </script>
@@ -16,7 +16,7 @@ function fncDeleteProduct() {
 <body>
 <table>
 	<tr align="center">
-		삭제하시겠습니까?
+		구매 취소하시겠습니까?
 	</tr>
 
 	<tr>
@@ -30,7 +30,7 @@ function fncDeleteProduct() {
 						<img src="/images/ct_btnbg01.gif" width="17" height="23"/> 
 					</td>
 					<td background="/images/ct_btnbg02.gif" class="ct_btn01" style="padding-top:3px;">
-						<a href="javascript:fncDeleteProduct();">삭제</a>
+						<a href="javascript:fncDeletePurchase();">구매취소</a>
 					</td>						
 					<td width="14" height="23">
 						<img src="/images/ct_btnbg03.gif" width="14" height="23"/>
@@ -40,7 +40,7 @@ function fncDeleteProduct() {
 						<img src="/images/ct_btnbg01.gif" width="17" height="23"/>
 					</td>
 					<td background="/images/ct_btnbg02.gif" class="ct_btn01" style="padding-top:3px;">
-						<a href="javascript:window.close();">취소</a>
+						<a href="javascript:window.close();">이전</a>
 					</td>
 					<td width="14" height="23">
 						<img src="/images/ct_btnbg03.gif" width="14" height="23"/>

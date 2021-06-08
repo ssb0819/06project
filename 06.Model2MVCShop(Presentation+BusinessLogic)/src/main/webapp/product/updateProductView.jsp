@@ -66,7 +66,7 @@ function fncDeleteProduct() {
 <form name="detailForm" method="post">
 
 <input type="hidden" name="prodNo" value="${product.prodNo}"/>
-<input type="hidden" name="currentPage" value="${param.currentPage}"/>
+<input type="hidden" name="currentPage" value="${currentPage}"/>
 
 <table width="100%" height="37" border="0" cellpadding="0" cellspacing="0">
 	<tr>
